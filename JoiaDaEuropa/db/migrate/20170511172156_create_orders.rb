@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.date :deadline
       t.text :description
       t.string :status
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
