@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
   resources :orders
 
- # get "pending", to: "orders#pending"
- # get '/orders/:id' => 'orders#pending'
- # get '/orders/pending', controller: 'orders_controller', action: 'pending'
-  get 'orders/pending', to: 'orders#pending'
+  get 'pending', to: 'pending#pending'
+
   # get '/orders/pending'
 
   get 'welcome/index'
@@ -15,5 +13,5 @@ Rails.application.routes.draw do
 
   get '/profile/index'
 
-  root to: 'home#index'
+  root to: 'pending#pending'
 end
