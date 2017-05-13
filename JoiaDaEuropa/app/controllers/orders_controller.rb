@@ -9,12 +9,18 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+
   end
 
   # GET /orders/new
   def new
     @order = Order.new
     @order.user_id = current_user.id
+  end
+
+  def pending
+    @order = Order.first
+
   end
 
   # GET /orders/1/edit
@@ -63,12 +69,13 @@ class OrdersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
+   def set_order
+     @order = Order.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:price, :deadline, :description, :status, :user_id)
+      params.require(:order).permit(:price, :deadline, :description, :status, :user_id, :attachment)
     end
 end
