@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'pending', to: 'pending#pending'
 
-  # get '/orders/pending'
+  get 'canceled', to: 'canceled#canceled'
 
   get 'welcome/index'
 

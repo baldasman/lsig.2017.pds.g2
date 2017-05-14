@@ -11,6 +11,8 @@ class Order < ApplicationRecord
                                                                    'application/xlsx',
                                                                    'application/octet-stream']
   def init
-    self.status = "pending"
+    if self.status == nil
+      self.status = "pending"
+    end
   end
 end

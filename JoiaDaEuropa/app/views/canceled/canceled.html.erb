@@ -1,29 +1,29 @@
 <%if current_user.role == 'normal_user'%>
-  <%= link_to 'Nova Encomenda', 'orders/new' %>
+    <%= link_to 'Nova Encomenda', 'orders/new' %>
 <%end%>
- |
+|
 <%= link_to 'Encomendas Pendentes', 'pending#pending' %>
 |
 <%= link_to 'Encomendas Canceladas', 'canceled#canceled' %>
 
 <p id="notice"><%= notice %></p>
 
-<h1>Encomendas Pendentes</h1>
+<h1>Encomendas Canceladas</h1>
 
 <%if current_user.role == 'normal_user'%>
     <table>
       <thead>
-        <tr>
-          <th>Codigo</th>
-          <th>Preco</th>
-          <th>Data de Entrega</th>
-          <th>Descricao</th>
-          <th>Status</th>
-          <th colspan="3"></th>
-        </tr>
+      <tr>
+        <th>Codigo</th>
+        <th>Preco</th>
+        <th>Data de Entrega</th>
+        <th>Descricao</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
       </thead>
       <tbody>
-        <% @orders.each do |order| %>
+      <% @orders.each do |order| %>
           <tr>
             <td><%= order.id%></td>
             <td><%= order.price %></td>
@@ -31,7 +31,7 @@
             <td><%= order.description %></td>
             <td><%= order.status %></td>
           </tr>
-        <% end %>
+      <% end %>
       </tbody>
     </table>
 <%else%>
