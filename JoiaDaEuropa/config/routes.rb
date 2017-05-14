@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'concluded', to: 'concluded#concluded'
 
+  get 'accepted', to: 'accepted#accepted'
+
   get 'welcome/index'
 
   devise_for :users
