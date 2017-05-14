@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'canceled', to: 'canceled#canceled'
 
+  get 'concluded', to: 'concluded#concluded'
+
   get 'welcome/index'
 
   devise_for :users
