@@ -10,6 +10,9 @@ class Order < ApplicationRecord
                                                                    'application/xls',
                                                                    'application/xlsx',
                                                                    'application/octet-stream']
+
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
+
   def init
     if self.status == nil
       self.status = "pending"
