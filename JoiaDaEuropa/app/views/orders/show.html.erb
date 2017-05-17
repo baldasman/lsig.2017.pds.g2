@@ -28,7 +28,7 @@
 <p>
   <strong>Pre-visualizacao:</strong><br>
   <%= image_tag @order.attachment.url(:medium) %><br>
-  <%= @order.attachment.url %>
+  <a href="<%= @order.attachment.url %>" target="_blank">Descarregar</a>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

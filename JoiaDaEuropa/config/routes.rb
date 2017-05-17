@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'accepted', to: 'accepted#accepted'
 
+  post 'pending/conclude_order/:id', to: 'pending#conclude_order', as: 'conclude_order'
+
   get 'welcome/index'
 
   devise_for :users
