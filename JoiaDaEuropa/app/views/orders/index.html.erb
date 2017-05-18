@@ -4,6 +4,15 @@
 
 <% if policy(@orders).index? %>
     <p>Usuario Admin</p>
+
+    <%= form_tag orders_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search" %>
+    <% end %>
+
+
+    <%= link_to "Advanced Search", new_search_path  %>
+
 <table>
   <thead>
     <tr>
@@ -39,6 +48,15 @@
 <% else %>
 
     <p>Usuario comum</p>
+
+    <%= form_tag orders_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search" %>
+    <% end %>
+
+
+    <%= link_to "Advanced Search", new_search_path  %>
+
     <table>
       <thead>
       <tr>

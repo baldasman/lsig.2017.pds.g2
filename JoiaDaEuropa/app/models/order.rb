@@ -18,4 +18,14 @@ class Order < ApplicationRecord
       self.status = "pending"
     end
   end
+
+  def self.search (search)
+    if search
+      where(["price LIKE ?", "%#{search}%"])
+    else
+      all
+
+    end
+  end
 end
+

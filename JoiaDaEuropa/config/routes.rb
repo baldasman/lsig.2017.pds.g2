@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :orders
+  resources :searches
 
   get 'pending', to: 'pending#pending'
 
