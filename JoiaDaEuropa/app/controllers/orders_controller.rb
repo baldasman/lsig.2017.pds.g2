@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.user_id = current_user.id
+
   end
 
   def pending
@@ -32,8 +33,12 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+
     respond_to do |format|
       if @order.save
+        user = User.find_by(id: @order.user_id)
+        UserMailer.customer_new_order_email(user, @order).deliver_now
+        UserMailer.admin_new_order_email(user, @order).deliver_now
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else

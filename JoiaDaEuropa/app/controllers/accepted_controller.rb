@@ -20,6 +20,8 @@ class AcceptedController < ApplicationController
     @order.status = 'concluded'
 
     if @order.save
+      user = User.find_by(id: @order.user_id)
+      UserMailer.concluded_email(user, @order).deliver_now
       redirect_to concluded_path
     else
       flash[:error] = @order.errors.messages

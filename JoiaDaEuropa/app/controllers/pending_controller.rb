@@ -20,6 +20,8 @@ class PendingController < ApplicationController
     @order.status = 'accepted'
 
     if @order.save
+      user = User.find_by(id: @order.user_id)
+      UserMailer.accepted_email(user, @order).deliver_now
       redirect_to accepted_path
     else
       flash[:error] = @order.errors.messages
@@ -39,6 +41,8 @@ class PendingController < ApplicationController
     @order.status = 'canceled'
 
     if @order.save
+      user = User.find_by(id: @order.user_id)
+      UserMailer.canceled_email(user, @order).deliver_now
       redirect_to canceled_path
     else
       flash[:error] = @order.errors.messages
