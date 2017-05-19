@@ -2,6 +2,7 @@
   <%= link_to 'Nova Encomenda', 'orders/new' %>
 <%end%>
  |
+<%= link_to 'Todas Encomendas', '/orders' %> |
 <%= link_to 'Encomendas Pendentes', 'pending#pending' %> |
 <%= link_to 'Encomendas Canceladas', 'canceled#canceled' %> |
 <%= link_to 'Encomendas Aceitas', '/accepted' %> |
@@ -46,6 +47,7 @@
         <th>Status</th>
         <th>User</th>
         <th></th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -57,7 +59,8 @@
             <td><%= order.description %></td>
             <td><%= order.status %></td>
             <td><%= order.user.email %></td>
-              <td><%= link_to 'Concluir', conclude_order_path(order.id), {method: 'post'} %></td>
+            <td><%= link_to 'Aceitar', accept_order_path(order.id), {method: 'post'} %></td>
+            <td><%= link_to 'Cancelar', cancel_order_path(order.id), {method: 'post'}%></td>
           </tr>
       <% end %>
       </tbody>

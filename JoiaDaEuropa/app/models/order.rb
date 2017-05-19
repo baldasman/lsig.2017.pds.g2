@@ -23,7 +23,7 @@ class Order < ApplicationRecord
     end
   end
 
-  def self.search (search)
+  def self.search(search)
     if search
       where(["price LIKE ?", "%#{search}%"])
     else
