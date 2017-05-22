@@ -25,5 +25,5 @@ Rails.application.routes.draw do
 
   get '/profile/index'
 
-  root to: 'pending#pending'
+  root to: 'welcome#index'
 end

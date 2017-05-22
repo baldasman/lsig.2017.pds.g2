@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JoiaDaEuropa</title>
+    <title>Joia da Europa</title>
+
+    <!-- Basic Page Needs
+    ================================================== -->
     <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+    <!-- Favicon
+    ================================================== -->
+    <%= favicon_link_tag 'favicon.png' %>
+
+    <!-- CSS
+    ================================================== -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Javascript Files
+     ================================================== -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'%>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js'%>
+    <%= javascript_include_tag 'https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'%>
   </head>
 
   <body>
-    <header class="row" style="text-align: center;">
-      <div class="col-md-3">
-        <%= link_to 'PT', '/?lang=pt' %>
-        <span>|</span>
-        <%= link_to 'EN', '/?lang=en' %>
-      </div>
-      <div class="col-md-6">
-        <img src="<%= asset_path 'logo.png' %>">
-      </div>
-      <div class="col-md-3">
-        <% if current_user %>
-          <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete'} %>
-        <% else %>
-            <%= link_to 'Sign In', new_user_session_path %>
-        <% end %>
-      </div>
-    </header>
 
     <%= yield %>
+
+
+    <%#Caixas de alerta %>
 
     <% if notice %>
     <div class="alert alert-info" role="alert">
