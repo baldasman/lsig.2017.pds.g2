@@ -40,8 +40,13 @@
             <li><a href="#service">Missão</a></li>
             <li><a href="#blog">Notícias</a></li>
             <li><a href="#contact">Contacto</a></li>
-            <li><a onClick="linkTo('http://0.0.0.0:3000/orders')" href="#">Login</a></li>
-            <li><a onClick="linkTo('http://0.0.0.0:3000/users/sign_up')" href="#">Cadastre-se</a></li>
+            <%if current_user.nil?%>
+              <li><a onClick="linkTo('http://0.0.0.0:3000/orders')" href="">Login</a></li>
+              <li><a onClick="linkTo('http://0.0.0.0:3000/users/sign_up')" href="">Cadastre-se</a></li>
+            <%else%>
+              <li><a onClick="linkTo('http://0.0.0.0:3000/orders')" href="">Sua Conta</a></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, { method: 'delete' }%></li>
+            <%end%>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -680,7 +685,7 @@
               <h4>Morada</h4>
               <p>RUA SANTA MARIA, 437 <br>
                 BARROSAS,
-                4650-139 - IDÃES FLG
+                4650-139 - IDÃES
               </p>
             </div>
           </div>

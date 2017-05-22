@@ -1,0 +1,27 @@
+#pa_header{
+    background-color: #1b1b1b;
+    opacity: 0.9;
+}
+
+.pa_container{
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.pa_container_geral{
+    height: 100%;
+}
+
+#form_new_order{
+
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botao_form{
+    float: right;
+}
+

@@ -1,17 +1,92 @@
+<div class="pa_container_geral">
+<header id="pa_header">
+  <!-- BEGIN MENU -->
+  <div class="menu_area_private">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- LOGO -->
+          <br>
+          <a class="navbar-brand" href="http://0.0.0.0:3000/">Joia da <span>Europa</span></a>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <br>
+          <div class="menu_login">
+            <a href="#">PT</a> |
+            <a href="#">EN</a>
+          </div>
+
+          <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
+            <li><a href="http://0.0.0.0:3000/">Home</a></li>
+            <li><a onClick="linkTo('http://0.0.0.0:3000/orders')" href="">Sua Conta</a></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, { method: 'delete' }%></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </div>
+  <!-- END MENU -->
+</header>
+
+<div class="pa_container">
+
+  <%= link_to 'Nova Encomenda', 'orders/new' %> |
+  <%= link_to 'Todas Encomendas', '/orders' %> |
+  <%= link_to 'Encomendas Pendentes', '/pending' %> |
+  <%= link_to 'Encomendas Canceladas', '/canceled' %> |
+  <%= link_to 'Encomendas Aceitas', '/accepted' %> |
+  <%= link_to 'Encomendas Concluidas', '/concluded' %>
+
 <h1>Advanced Search</h1>
+  <div id="form_new_order">
 <%= form_for @search, html: {class: "pure-form"} do |s| %>
-    <div class="field">
+        <div class="form-group">
       <%= s.label :keywords %><br />
-      <%= s.text_field :keywords %>
-    </div>
-    <div class="field">
-      <%= s.label :status %><br />
+      <%= s.text_field :keywords, size:"40" %>
+    </div><br>
+        <div class="form-group">
+      <%= s.label :status %>
       <%= s.select :status, options_for_select(@statuses), :include_blank => true %>
-    </div>
-    <div class="field">
+    </div><br>
+        <div class="form-group">
       <p><%= s.label :min_price, "Min Price" %> - <%= s.text_field :min_price, :size => 10 %></p>
       <p><%= s.label :min_price, "Max Price" %> - <%= s.text_field :max_price, :size => 10 %></p>
     </div>
-    <div class="actions"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
+        <div class="botao_form"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
 <% end %>
 <p><%= link_to 'Back', orders_path %></p>
+</div>
+</div>
+  <br><br><br><br><br>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="footer_left">
+          <!--=========== Designed By WpFreeware Team ================-->
+          <p>Jóia da Europa Unipessoal, Lda. &copy; All Rights Reserved.</p>
+          <!--=========== Designed By WpFreeware Team ================-->
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="footer_right">
+          <ul class="social_nav">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+

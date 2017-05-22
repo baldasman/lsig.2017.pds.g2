@@ -1,12 +1,71 @@
-<%= link_to 'Nova Encomenda', 'orders/new' %> |
+<header id="pa_header">
+  <!-- BEGIN MENU -->
+  <div class="menu_area_private">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- LOGO -->
+          <br>
+          <a class="navbar-brand" href="http://0.0.0.0:3000/">Joia da <span>Europa</span></a>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <br>
+          <div class="menu_login">
+            <a href="#">PT</a> |
+            <a href="#">EN</a>
+          </div>
+
+          <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
+            <li><a href="http://0.0.0.0:3000/">Home</a></li>
+            <li><a onClick="linkTo('http://0.0.0.0:3000/orders')" href="">Sua Conta</a></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, { method: 'delete' }%></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </div>
+  <!-- END MENU -->
+</header>
+
+<div class="pa_container">
+<%= link_to 'Nova Encomenda', '/orders/new' %> |
 <%= link_to 'Todas Encomendas', '/orders' %> |
 <%= link_to 'Encomendas Pendentes', '/pending' %> |
 <%= link_to 'Encomendas Canceladas', '/canceled' %> |
 <%= link_to 'Encomendas Aceitas', '/accepted' %> |
 <%= link_to 'Encomendas Concluidas', '/concluded' %>
 
+
 <h1>Nova Encomenda</h1>
-
+  <div id="form_new_order">
 <%= render 'form', order: @order %>
-
+<br>
 <%= link_to 'Cancelar', pending_path %>
+
+  </div>
+</div>
+
+<br><br><br><br>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="footer_left">
+          <!--=========== Designed By WpFreeware Team ================-->
+          <p>Jóia da Europa Unipessoal, Lda. &copy; All Rights Reserved.</p>
+          <!--=========== Designed By WpFreeware Team ================-->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>

@@ -1,35 +1,98 @@
-<p id="notice"><%= notice %></p>
+<header id="pa_header">
+  <!-- BEGIN MENU -->
+  <div class="menu_area_private">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-<p>
-  <strong>Price:</strong>
-  <%= @order.price %>
-</p>
+          <!-- LOGO -->
+          <br>
+          <a class="navbar-brand" href="http://0.0.0.0:3000/">Joia da <span>Europa</span></a>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @order.deadline %>
-</p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <br>
+          <div class="menu_login">
+            <a href="#">PT</a> |
+            <a href="#">EN</a>
+          </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @order.description %>
-</p>
+          <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
+            <li><a href="http://0.0.0.0:3000/">Home</a></li>
+            <li><a onClick="linkTo('http://0.0.0.0:3000/orders')" href="">Sua Conta</a></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, { method: 'delete' }%></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </div>
+  <!-- END MENU -->
+</header>
 
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
+<div class="pa_container">
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user.email %>
-</p>
+  <%= link_to 'Todas Encomendas', '/orders' %> |
+  <%= link_to 'Encomendas Pendentes', 'pending#pending' %> |
+  <%= link_to 'Encomendas Canceladas', 'canceled#canceled' %> |
+  <%= link_to 'Encomendas Aceitas', '/accepted' %> |
+  <%= link_to 'Encomendas Concluidas', 'concluded#concluded' %>
 
-<p>
-  <strong>Pre-visualizacao:</strong><br>
-  <%= image_tag @order.attachment.url(:medium) %><br>
-  <a href="<%= @order.attachment.url %>" target="_blank">Descarregar</a>
-</p>
+  <br><br>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  <div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Resultados</div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Price</th>
+        <th>Deadline</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>File</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+
+          <tr>
+            <td><%=@order.price %></td>
+            <td><%=@order.deadline %></td>
+            <td><%=@order.description %></td>
+            <td><%=@order.status %></td>
+            <td><%= image_tag @order.attachment.url(:medium) %><br></td>
+              <td><a href="<%= @order.attachment.url %>" target="_blank">Descarregar</a></td>
+          </tr>
+
+      </tbody>
+    </table>
+
+
+  </div>
+  <%= link_to 'Back', orders_path %>
+</div>
+<br><br><br><br>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="footer_left">
+          <!--=========== Designed By WpFreeware Team ================-->
+          <p>Jóia da Europa Unipessoal, Lda. &copy; All Rights Reserved.</p>
+          <!--=========== Designed By WpFreeware Team ================-->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
